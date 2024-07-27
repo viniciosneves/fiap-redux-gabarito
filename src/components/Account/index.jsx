@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { Balance } from "./Balance";
 import { BalanceWrapper, Card, DateWrapper, Heading } from "./styles"
+import { selectCurrentBalance } from "../../features/transactions/transactionsSlice";
 
 
 const options = {
@@ -10,6 +12,9 @@ const options = {
 };
 
 export const Account = () => {
+
+    const currentBalance = useSelector(selectCurrentBalance);
+
     return (<Card>
         <div>
             <Heading>
@@ -20,7 +25,7 @@ export const Account = () => {
             </DateWrapper>
         </div>
         <BalanceWrapper>
-            <Balance valor={2500}/>
+            <Balance valor={currentBalance}/>
         </BalanceWrapper>
     </Card>)
 }

@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { Transaction } from "../Transaction";
 import { Container, Heading, TransactionsList } from "./styles";
+import { selectTransactions } from "../../features/transactions/transactionsSlice";
 
 export const Statement = () => {
 
-    const transactions = useSelector((state) => state.transactions.transactions);
+    const transactions = useSelector(selectTransactions);
 
     return (<Container>
         <Heading>
