@@ -4,6 +4,8 @@ import { Sidebar } from "./components/Sidebar"
 import { Account } from "./components/Account"
 import { TransactionForm } from "./components/TransactionForm"
 import { Statement } from "./components/Statement"
+import { Provider } from "react-redux"
+import store from "./store"
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <>
+      <Provider store={store}>
       <Header />
       <Container>
         <Sidebar />
@@ -34,6 +37,7 @@ function App() {
           <Statement />
         </div>
       </Container>
+    </Provider>
     </>
   )
 }
